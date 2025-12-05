@@ -1,1 +1,10 @@
 @import "tailwindcss";
+
+.active span{
+    background-color: blue;
+    color: white;
+    border-radius: 20px;
+    width: 100%;
+    padding: 3px;
+    padding-left: 5px;
+}

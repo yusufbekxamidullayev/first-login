@@ -6,7 +6,7 @@ function Layout() {
   return (
     <>
       <Sidebar/>
-      <main>
+      <main className='pl-70 pt-5'>
         <Outlet/>
       </main>
     </>

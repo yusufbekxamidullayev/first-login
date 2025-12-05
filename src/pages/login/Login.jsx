@@ -1,6 +1,17 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
-function LoginPage() {
+function LoginPage({setIsAuth}) {
+    const navigate = useNavigate();
+
+    const submit = (e) => {
+        e.preventDefault();
+        if(e.target[0].value === "+998973434950" && e.target[1].value === "1234567"){
+            setIsAuth(true)
+            localStorage.setItem("auth" , true)
+            navigate("/products")
+        }
+    }
   return (
       <div
           className="w-full h-screen bg-cover bg-center flex items-center justify-center pl-100"
@@ -8,7 +19,7 @@ function LoginPage() {
       >
           <div className="w-full max-w-sm p-6 bg-white bg-opacity-90 backdrop-blur-md rounded-xl shadow-lg">
               <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
-              <form className="space-y-4" onSubmit={(e) => { e.preventDefault();}}>
+              <form onSubmit={submit} className="space-y-4">
                   <input
                       type="tel"
                       placeholder="Phone Number"
