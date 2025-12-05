@@ -10,14 +10,14 @@ function App() {
   const [isAuth , setIsAuth] = useState(localStorage.getItem("auth") || false)
   return (
     <BrowserRouter>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div className='flex pt-70 justify-center h-screen text-[50px] text-blue-900'>Loading...</div>}>
         <Routes>
           <Route path="/" element={<LoginPage setIsAuth={setIsAuth} />} />
           <Route element={isAuth ? <Layout /> : <Navigate to={"/"} />}>
             <Route path="products" element={<ProductsPage />} />
             <Route path="categories" element={<CategoriesPage />} />
           </Route>
-          <Route path='*' element={<NotFound/>}/>
+          <Route path='*' element={<NotFound />}/>
         </Routes>
       </Suspense>
     </BrowserRouter>
